@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thumeleaf.org">
+<head>
+    <title>Create book form</title>
+</head>
+<body>
+<form th:method="post" th:object="${bookDto}">
+    title: <input th:field="*{title}">
+    <br/>
+    isbn: <input th:field="*{isbn}">
+    <br/>
+    author: <input th:field="*{author}">
+    <br/>
+    <button type="submit">Save</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book: ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.isbn}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
